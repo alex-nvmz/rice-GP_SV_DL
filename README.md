@@ -10,6 +10,8 @@ This repository contains the scripts used to develop the project. Source data an
 | R      | Data processing, exploratory data analysis, genomic variance inference, GP with linear models |
 | Python | Genomic prediction with ANNs                                                                  |
 
+--------------------
+
 ## R
 
 | Folder                    | Content                                    |
@@ -60,6 +62,8 @@ This repository contains the scripts used to develop the project. Source data an
 | 01c_bash_instruction.txt  | Bash commands used with 01c_run-GP.sh                                                  |
 | 02_merge-results_plot.R   | Merge results into a table and plot                                                    |
 | 03_compute-accuracy-AUC.R | Compute accuracy and AUC metric a posteriori using the .RData objects of each analysis |
+
+--------------------
 
 ## Python
 
