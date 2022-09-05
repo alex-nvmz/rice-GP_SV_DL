@@ -1,12 +1,8 @@
-conda activate tf2
-
------------------------
-
 # AroAdm: Hpar search
 
 bash ./run_python_script.sh --par ./parameters/AroAdm_kerPC.csv --script ./run_hypermodel_final.py --suf AroAdm_kerPC --init 0
 bash ./run_python_script.sh --par ./parameters/AroAdm_top-markers-10k.csv --script ./run_hypermodel_final.py --suf AroAdm_top-markers-10k --init 0
-bash ./run_python_script.sh --par ./parameters/AroAdm_top-markers-10k.csv --script ./run_hypermodel_final_CNN.py --suf AroAdm_top-markers-10k --init 8
+bash ./run_python_script.sh --par ./parameters/AroAdm_top-markers-10k.csv --script ./run_hypermodel_final.py --suf AroAdm_top-markers-10k --init 8
 
 
 bash ./run_python_script.sh --par ./parameters/AroAdm_kerPC_multi-output.csv --script ./run_hypermodel_final.py --suf AroAdm_kerPC_multi-output --init 0
@@ -14,29 +10,30 @@ bash ./run_python_script.sh --par ./parameters/AroAdm_top-markers-10k_multi-inpu
 
 # Prediction with AroAdm Hpar
 
-bash ./run_python_script.sh --par ./parameters/10-fold-cv_kerPC.csv --script ./run_prediction_final.py --suf 10-fold-cv_kerPC_pred --init 0
-bash ./run_python_script.sh --par ./parameters/10-fold-cv_top-markers-10k.csv --script ./run_prediction_final.py --suf 10-fold-cv_top-markers-10k_pred --init 0
-bash ./run_python_script.sh --par ./parameters/10-fold-cv_top-markers-10k.csv --script ./run_prediction_final_CNN.py --suf 10-fold-cv_top-markers-10k_pred --init 80
-
-bash ./run_python_script.sh --par ./parameters/10-fold-cv_kerPC_multi-output.csv --script ./run_prediction_final.py --suf 10-fold-cv_kerPC_multi-output_pred --init 0
-bash ./run_python_script.sh --par ./parameters/10-fold-cv_top-markers-10k_multi-input_multi-output.csv --script ./run_prediction_final.py --suf 10-fold-cv_top-markers-10k_multi-input_multi-output_pred --init 0
-
-----------
-
 bash ./run_python_script.sh --par ./parameters/AroAdm_kerPC.csv --script ./run_prediction_final.py --suf AroAdm_kerPC_pred --init 0
 bash ./run_python_script.sh --par ./parameters/AroAdm_top-markers-10k.csv --script ./run_prediction_final.py --suf AroAdm_top-markers-10k_pred --init 0
-bash ./run_python_script.sh --par ./parameters/AroAdm_top-markers-10k.csv --script ./run_prediction_final_CNN.py --suf AroAdm_top-markers-10k_pred --init 8
+bash ./run_python_script.sh --par ./parameters/AroAdm_top-markers-10k.csv --script ./run_prediction_final.py --suf AroAdm_top-markers-10k_pred --init 8
 
 bash ./run_python_script.sh --par ./parameters/AroAdm_kerPC_multi-output.csv --script ./run_prediction_final.py --suf AroAdm_kerPC_multi-output_pred --init 0
 bash ./run_python_script.sh --par ./parameters/AroAdm_top-markers-10k_multi-input_multi-output.csv --script ./run_prediction_final.py --suf AroAdm_top-markers-10k_multi-input_multi-output_pred --init 0
 
+-----------
+
+bash ./run_python_script.sh --par ./parameters/10-fold-cv_kerPC.csv --script ./run_prediction_final.py --suf 10-fold-cv_kerPC_pred --init 0
+bash ./run_python_script.sh --par ./parameters/10-fold-cv_top-markers-10k.csv --script ./run_prediction_final.py --suf 10-fold-cv_top-markers-10k_pred --init 0
+bash ./run_python_script.sh --par ./parameters/10-fold-cv_top-markers-10k.csv --script ./run_prediction_final.py --suf 10-fold-cv_top-markers-10k_pred --init 80
+
+bash ./run_python_script.sh --par ./parameters/10-fold-cv_kerPC_multi-output.csv --script ./run_prediction_final.py --suf 10-fold-cv_kerPC_multi-output_pred --init 0
+bash ./run_python_script.sh --par ./parameters/10-fold-cv_top-markers-10k_multi-input_multi-output.csv --script ./run_prediction_final.py --suf 10-fold-cv_top-markers-10k_multi-input_multi-output_pred --init 0
 
 
 
 
 
 
-# 10-fold-cv: Hpar search
+
+
+# 10-fold-cv: Hpar search (not done)
 
 bash ./run_python_script.sh --par ./parameters/10-fold-cv_kerPC.csv --script ./run_hypermodel_final.py --suf 10-fold-cv_kerPC --init 0
 bash ./run_python_script.sh --par ./parameters/10-fold-cv_top-markers-10k.csv --script ./run_hypermodel_final.py --suf 10-fold-cv_top-markers-10k --init 0
@@ -44,15 +41,3 @@ bash ./run_python_script.sh --par ./parameters/10-fold-cv_top-markers-10k.csv --
 bash ./run_python_script.sh --par ./parameters/10-fold-cv_kerPC_multi-output.csv --script ./run_hypermodel_final.py --suf 10-fold-cv_kerPC_multi-output --init 0
 bash ./run_python_script.sh --par ./parameters/10-fold-cv_top-markers-10k_multi-input_multi-output.csv --script ./run_hypermodel_final.py --suf 10-fold-cv_top-markers-10k_multi-input_multi-output.csv --init 0
 
-
-
-
-
-10-fold-cv_kerPC.csv
-10-fold-cv_kerPC_multi-output.csv
-10-fold-cv_top-markers-10k.csv
-10-fold-cv_top-markers-10k_multi-input_multi-output.csv
-AroAdm_kerPC.csv
-AroAdm_kerPC_multi-output.csv
-AroAdm_top-markers-10k.csv
-AroAdm_top-markers-10k_multi-input_multi-output.csv

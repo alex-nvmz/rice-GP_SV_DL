@@ -20,63 +20,59 @@ This repository contains the scripts used to develop the project. Source data an
 
 ### data
 
-| Script                         | Description |
-| ------------------------------ | ----------- |
-| 01_accessions_phenotypes.R     |             |
-| 02_SV-info.R                   |             |
-| 03_geno-matrix_SNP.R           |             |
-| 04_geno-matrix_TIP.R           |             |
-| 05_geno-matrix_SV.R            |             |
-| 06_CNV-processing.sh           |             |
-| 07_matrices_combined-markers.R |             |
-| 08_partitions.R                |             |
-| 09a_GWAS_param-grid.R          |             |
-| 09b_GWAS.R                     |             |
-| 09c_run_GWAS.sh                |             |
-| 10_top-markers_tables.R        |             |
-| 11_top-markers_geno-matrices.R |             |
-| 12_kernels-from-markers.R      |             |
-| 13_PCA.R                       |             |
-| 14_kernel-PCA.R                |             |
-| 15_trait-not-NA-count.R        |             |
-| s01_plot_TIP-freq.R            |             |
-| s02_plot_CNV-stats.R           |             |
-| s03a_top-markers_plots.R       |             |
-| s03b_top-markers_plots.R       |             |
-| s04_trait-plots.R              |             |
+| Script                         | Description                                                               |
+| ------------------------------ | ------------------------------------------------------------------------- |
+| 01_accessions_phenotypes.R     | Process original files with phenotypic and rice population information    |
+| 02_SV-info.R                   | Summarize information from the original SV files                          |
+| 03_geno-matrix_SNP.R           | Turn SNPs .bed file into .csv genotype matrix                             |
+| 04_geno-matrix_TIP.R           | Generate TIP genotype matrices and filter by MAF                          |
+| 05_geno-matrix_SV.R            | Generate SV genotype matrices from the information files                  |
+| 06_CNV-processing.sh           | Compute missing rate of the CNVs (data eventually discarded)              |
+| 07_matrices_combined-markers.R | Concatenation of genotype matrices. Creates MITE-DTX and RLX-RIX matrices |
+| 08_partitions.R                | Establishes the data partitions for the 10-fold CV                        |
+| 09a_GWAS_param-grid.R          | Creates grid where every row has the parameters for a GWAS run            |
+| 09b_GWAS.R                     | GWAS core script (1 trait and 1 partition at a time)                      |
+| 09c_run_GWAS.sh                | Runs all GWAS jobs with the option to parallelize                         |
+| 10_top-markers_tables.R        | Process GWAS output to generate tables with the top 10k markers           |
+| 11_top-markers_geno-matrices.R | Generate sorted genotype matrices with the top 10k markers                |
+| 12_kernels-from-markers.R      | Compute genomic relationship matrices with AGHmatrix                      |
+| 13_PCA.R                       | Perform PCA of the genotype matrices as a exploratory analysis            |
+| 14_kernel-PCA.R                | Obtain kerPC inputs for the ANNs                                          |
+| s01_plot_TIP-freq.R            | Plot TIP allelic frequencies before filtering by MAF                      |
+| s02_plot_CNV-stats.R           | Plot CNV missing rate                                                     |
+| s03_top-markers_plots.R        | Plot marker type composition of the top 10k marker genotype matrices      |
+| s04_trait-plots.R              | Exploratory analysis of the trait variables                               |
 
 ### genetic-variance_gaussian
 
-| Script                    | Description |
-| ------------------------- | ----------- |
-| 01_h2-estimate_gaussian.R |             |
-| 02_merge-results_plot.R   |             |
+| Script                    | Description                                           |
+| ------------------------- | ----------------------------------------------------- |
+| 01_h2-estimate_gaussian.R | Run Bayesian RKHS models to estimate genomic variance |
+| 02_merge-results_plot.R   | Merge the results into a table and plot               |
 
 ### GP-linear
 
-| Script                    | Description |
-| ------------------------- | ----------- |
-| 01a_do-param-grid.R       |             |
-| 01b_GP-BGLR.R             |             |
-| 01c_run-GP.sh             |             |
-| 02a_plot-BayesC-Htune.R   |             |
-| 02b_plot.R                |             |
-| 02c_plot_alt.R            |             |
-| 03_compute-accuracy-AUC.R |             |
-| bash_instruction.txt      |             |
-
+| Script                    | Description                                                                            |
+| ------------------------- | -------------------------------------------------------------------------------------- |
+| 01a_do-param-grid.R       | Create grids where every row has the parameters for an independent RKHS or Bayes C run |
+| 01b_GP-BGLR.R             | Core BGLR script for RKHS or Bayes C                                                   |
+| 01c_run-GP.sh             | Runs all GP jobs with the option to parallelize                                        |
+| 01c_bash_instruction.txt  | Bash commands used with 01c_run-GP.sh                                                  |
+| 02_merge-results_plot.R   | Merge results into a table and plot                                                    |
+| 03_compute-accuracy-AUC.R | Compute accuracy and AUC metric a posteriori using the .RData objects of each analysis |
 
 ## Python
 
-| Script                        | Description |
-| ----------------------------- | ----------- |
-| 01_parameters.ipynb           |             |
-| hypermodels.py                |             |
-| 02_run_hypermodel_final.ipynb |             |
-| 02_run_hypermodel_final.py    |             |
-| 03_run_prediction_final.ipynb |             |
-| 03_run_prediction_final.py    |             |
-| 04_run_python_script.sh       |             |
-| 04_bash_instruction.txt       |             |
-| 05_get_results.ipynb          |             |
-| 06_plot_results.R             |             |
+| Script                        | Description                                                                                                                                                     |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| environment.yml               | Specifies the conda environment used. To replicate, use command: `conda env create -f environment.yml`                                                          |
+| 01_parameters.ipynb           | Creates grids where every row has the parameters for an independent ANN run                                                                                     |
+| hypermodels.py                | Defines subclasses of the keras_tuner HyperModel(): hyperMLP() and hyperCNN(). They specify the hyperparameter space and have methods to build and train models |
+| 02_run_hypermodel_final.ipynb | Run hyperparameter search and early prediction results. Interactive version                                                                                     |
+| 02_run_hypermodel_final.py    | Run hyperparameter search and early prediction results                                                                                                          |
+| 03_run_prediction_final.ipynb | Run prediction with a given set of hyperparameters. Interactive version                                                                                         |
+| 03_run_prediction_final.py    | Run prediction with a given set of hyperparameters                                                                                                              |
+| 04_run_python_script.sh       | Run either 02_run_hypermodel_final.py or 03_run_prediction_final.py one job at a time                                                                           |
+| 04_bash_instruction.txt       | Bash commands used with 04_run_python_script.sh                                                                                                                 |
+| 05_get_results.ipynb          | Gather all results into a table                                                                                                                                 |
+| 06_plot_results.R             | Make final plots with linear models + ANNs results                                                                                                              |

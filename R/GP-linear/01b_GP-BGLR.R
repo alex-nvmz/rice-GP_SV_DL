@@ -154,10 +154,10 @@ if (model == "BayesC") {
   X <- scale(X, center = TRUE, scale = TRUE)
 }
 
-# Scale continuous traits, just using data of training
-if (var_type == "continuous") {
-  y <- (y - mean(y[train])) / sd(y[train])
-}
+# Do not scale continuous traits, just using data of training
+# if (var_type == "continuous") {
+#   y <- (y - mean(y[train])) / sd(y[train])
+# }
 
 
 # Introduce NA in test accessions for prediction

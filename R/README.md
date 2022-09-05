@@ -1,3 +1,11 @@
+## R
+
+| Folder                    | Content                                    |
+| ------------------------- | ------------------------------------------ |
+| data                      | Data processing, exploratory data analysis |
+| genetic-variance_gaussian | genomic variance inference                 |
+| GP-linear                 | GP with linear models                      |
+
 ### data
 
 | Script                         | Description                                                               |
@@ -22,3 +30,21 @@
 | s02_plot_CNV-stats.R           | Plot CNV missing rate                                                     |
 | s03_top-markers_plots.R        | Plot marker type composition of the top 10k marker genotype matrices      |
 | s04_trait-plots.R              | Exploratory analysis of the trait variables                               |
+
+### genetic-variance_gaussian
+
+| Script                    | Description                                           |
+| ------------------------- | ----------------------------------------------------- |
+| 01_h2-estimate_gaussian.R | Run Bayesian RKHS models to estimate genomic variance |
+| 02_merge-results_plot.R   | Merge the results into a table and plot               |
+
+### GP-linear
+
+| Script                    | Description                                                                            |
+| ------------------------- | -------------------------------------------------------------------------------------- |
+| 01a_do-param-grid.R       | Create grids where every row has the parameters for an independent RKHS or Bayes C run |
+| 01b_GP-BGLR.R             | Core BGLR script for RKHS or Bayes C                                                   |
+| 01c_run-GP.sh             | Runs all GP jobs with the option to parallelize                                        |
+| 01c_bash_instruction.txt  | Bash commands used with 01c_run-GP.sh                                                  |
+| 02_merge-results_plot.R   | Merge results into a table and plot                                                    |
+| 03_compute-accuracy-AUC.R | Compute accuracy and AUC metric a posteriori using the .RData objects of each analysis |
