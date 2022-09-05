@@ -1,0 +1,11 @@
+bash 01c_run-GP.sh --par ./parameters/pars_AroAdm_BayesC.csv --script ./01b_GP-BGLR.R --suf AroAdm_BayesC --cores 4
+
+bash 01c_run-GP.sh --par ./parameters/pars_AroAdm_BayesC.csv --script ./01b_GP-BGLR.R --suf AroAdm_BayesC --cores 6
+
+---
+
+nohup ./01c_run-GP.sh --par ./parameters/pars_AroAdm_RKHS.csv --script ./01b_GP-BGLR.R --suf AroAdm_RKHS --cores 4
+
+nohup ./01c_run-GP.sh --par ./parameters/pars_10-fold-cv_RKHS.csv --script ./01b_GP-BGLR.R --suf 10-fold-cv_RKHS --cores 7
+
+nohup ./01c_run-GP.sh --par ./parameters/pars_10-fold-cv_BayesC.csv --script ./01b_GP-BGLR.R --suf 10-fold-cv_BayesC --cores 7
